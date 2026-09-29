@@ -35,6 +35,14 @@ public class ServicoAluno {
         dao.inserir(aluno);
     }
 
+    public Aluno consultar(String matricula) {
+        Aluno aluno = dao.buscarPorMatricula(matricula);
+        if (aluno == null) {
+            throw new IllegalArgumentException("Aluno não encontrado: " + matricula);
+        }
+        return aluno;
+    }
+
     public List<Aluno> listar() {
         return dao.listarTodos();
     }
