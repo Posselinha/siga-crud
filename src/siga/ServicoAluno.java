@@ -47,6 +47,12 @@ public class ServicoAluno {
         return dao.listarTodos();
     }
 
+    public void alterar(Aluno aluno) {
+        validar(aluno);
+        consultar(aluno.getMatricula());   // garante que existe
+        dao.atualizar(aluno);
+    }
+
     private void validar(Aluno aluno) {
         if (aluno.getNome() == null || aluno.getNome().isBlank()) {
             throw new IllegalArgumentException("Nome é obrigatório.");
