@@ -28,12 +28,9 @@ public class ServicoAluno {
     }
 
     public void cadastrar(Aluno aluno) {
-        // Validação escrita diretamente aqui (e repetida no Main, com outro limite).
-        if (aluno.getNome() == null || aluno.getNome().isBlank()) {
-            throw new IllegalArgumentException("Nome é obrigatório.");
-        }
-        if (aluno.getMedia() < 0 || aluno.getMedia() > 10) {
-            throw new IllegalArgumentException("Média deve estar entre 0 e 10.");
+        validar(aluno);
+        if (dao.buscarPorMatricula(aluno.getMatricula()) != null) {
+            throw new IllegalStateException("Matrícula já cadastrada.");
         }
         dao.inserir(aluno);
     }
