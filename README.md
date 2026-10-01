@@ -22,3 +22,7 @@ javac -d bin src/siga/*.java
 # 2. Executar
 java -cp bin siga.Main
 ```
+
+## Consolidação da ETAPA 1
+
+Para impedir a matricula duplicada no inserir, é primeiro realizado uma verificação se a matricula já existe, e caso exista, impedir a inserção dela dentro do banco. Atualizar é implementado com uma verificação se a matricula existe dentro do banco, que dá erro caso não existir, e logo após isso reescrever o devido valor.
